@@ -10,7 +10,9 @@ const { Scheduler } = util;
 const { abs, sin, cos, PI: pi, sqrt } = Math;
 const { round } = util;
 
+psychoJS.experiment.addData('shameimei', 'cytfloar');
 
+/*
 // store info about the experiment session:
 let expName = 'stroop';  // from the Builder filename that created this script
 let expInfo = {'participant': '', 'session': '001'};
@@ -569,3 +571,4 @@ async function quitPsychoJS(message, isCompleted) {
   
   return Scheduler.Event.QUIT;
 }
+*/
