@@ -22,6 +22,13 @@ psychoJS.start({
   expInfo: expInfo
 })
 
+psychoJS.openWindow({
+  fullscr: true,
+  color: new util.Color([0, 0, 0]),
+  units: 'height',
+  waitBlanking: true
+});
+
 psychoJS.experiment.addData('shameimei', 'cytfloar');
 
 /*
