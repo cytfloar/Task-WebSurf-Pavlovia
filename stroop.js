@@ -29,6 +29,11 @@ psychoJS.openWindow({
   waitBlanking: true
 });
 
+psychoJS.schedule(psychoJS.gui.DlgFromDict({
+  dictionary: expInfo,
+  title: expName
+}));
+
 psychoJS.experiment.addData('shameimei', 'cytfloar');
 
 /*
