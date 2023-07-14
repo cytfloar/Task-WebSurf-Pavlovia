@@ -37,6 +37,7 @@ psychoJS.schedule(psychoJS.gui.DlgFromDict({
 
 async function experiment() {
   psychoJS.experiment.addData('shameimei', 'cytfloar');
+  psychoJS.experiment.nextEntry();
 }
 
 psychoJS.scheduleCondition(function() { return (psychoJS.gui.dialogComponent.button === 'OK'); }, experiment);
