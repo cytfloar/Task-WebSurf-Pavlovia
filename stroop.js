@@ -10,7 +10,7 @@ const { Scheduler } = util;
 const { abs, sin, cos, PI: pi, sqrt } = Math;
 const { round } = util;
 
-psychoJS.experiment.addData('shameimei', 'cytfloar');
+PsychoJS.experiment.addData('shameimei', 'cytfloar');
 
 /*
 // store info about the experiment session:
