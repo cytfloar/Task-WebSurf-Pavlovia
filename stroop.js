@@ -10,7 +10,19 @@ const { Scheduler } = util;
 const { abs, sin, cos, PI: pi, sqrt } = Math;
 const { round } = util;
 
-PsychoJS.experiment.addData('shameimei', 'cytfloar');
+const psychoJS = new PsychoJS({
+  debug: true
+});
+
+let expName = 'stroop'; 
+let expInfo = {'participant': '', 'session': '001'};
+
+psychoJS.start({
+  expName: expName,
+  expInfo: expInfo
+})
+
+psychoJS.experiment.addData('shameimei', 'cytfloar');
 
 /*
 // store info about the experiment session:
