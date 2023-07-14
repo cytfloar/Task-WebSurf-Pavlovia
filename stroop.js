@@ -34,7 +34,14 @@ psychoJS.schedule(psychoJS.gui.DlgFromDict({
   title: expName
 }));
 
-psychoJS.experiment.addData('shameimei', 'cytfloar');
+
+async function experiment() {
+  psychoJS.experiment.addData('shameimei', 'cytfloar');
+}
+
+psychoJS.scheduleCondition(function() { return (psychoJS.gui.dialogComponent.button === 'OK'); }, experiment);
+
+
 
 /*
 // store info about the experiment session:
