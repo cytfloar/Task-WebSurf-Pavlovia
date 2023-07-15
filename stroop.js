@@ -161,6 +161,7 @@ async function experiment() {
   psychoJS.experiment.addData('shameimei', 'cytfloar');
   psychoJS.experiment.nextEntry();
   document.getElementById("root").style.display = "none"
+  document.getElementById("container").style.display = "initial"
   return main()
 }
 
