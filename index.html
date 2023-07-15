@@ -7,14 +7,84 @@
     <!-- styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.css">
     <link rel="stylesheet" href="./lib/psychojs-2021.2.3.css">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: rgb(145, 145, 145);
+        overflow: hidden;
+      }
+
+      :not(:root):fullscreen::backdrop {
+        background: rgb(145, 145, 145);
+      }
+
+      #container { /* id: container */
+        height: 100%;
+        width: 100%;
+      }
+
+      .zero-width {
+        width: 0%;
+      }
+
+      .full-width {
+        width: 100%;
+      }
+
+      table td {
+        border-bottom: 2px black solid;
+        border-left: 2px black solid;
+        border-right: 2px black solid;
+      }
+
+      th, td {
+        padding: 0;
+      }
+
+      table {
+        border-spacing: 0;
+      }
+
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      label {
+        display: block;
+        font-size: 30px;
+        margin-bottom: 5px;
+      }
+
+      input {
+        margin-bottom: 10px;
+        width: 270px;
+        height: 40px;
+        font-size: 30px;
+      }
+
+      input[name="date"] {
+        font-size: 18px;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <div id="container"></div>
     <!-- external libraries -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/preloadjs@1.0.1/lib/preloadjs.min.js"></script>
     <!-- experiment -->
+    <script src="constants.js"></script>
+    <script src="index.js"></script>
+    <script src="main.js"></script>
     <script src="./stroop.js" type="module"></script>
     <!-- legacy browsers -->
     <script src="./lib/psychojs-2021.2.3.iife.js" nomodule></script>
