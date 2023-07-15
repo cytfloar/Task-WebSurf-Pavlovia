@@ -204,6 +204,7 @@ async function main() {
 async function experiment() {
   document.getElementById("root").style.display = "none"
   document.getElementById("container").style.display = "initial"
+  console.log("background changed");
   document.body.style.background = "rgb(145, 145, 145)"
   return main()
 }
