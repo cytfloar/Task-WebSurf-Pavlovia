@@ -45,6 +45,9 @@ async function quitPsychoJS(message, isCompleted) {
   return Scheduler.Event.QUIT;
 }
 
+var addData = (a, b) => psychoJS.experiment.addData(a, b);
+var nextEntry = () => psychoJS.experiment.nextEntry();
+
 function timeFrom(start) {
   return (Date.now() - start) / 1000;
 }
@@ -124,8 +127,10 @@ async function main() {
     baseTime = Date.now()
 
     while (true) {
+      addData("onset of trial", timeFrom(baseTime))
+
       if (timeFrom(baseTime) >= breakList[blockNum]) {
-        newInstruction("+", {style: {fontSize: "100px", fontWeight: "bold"}});
+        newInstruction("+", {style: {fontSize: "100px", fontWeight: "bold"}})
         await Timer(1) //test only, change to 40s for final copy
         clearScreen()
         blockNum++
@@ -135,9 +140,13 @@ async function main() {
       var delay = randint(3, 30)
       if (cue === 1) shuffleArray(BLOCKORDER)
 
+      addData("trial", nTrial)
+      addData("delay", delay)
+
       var logo = BLOCKORDER[cue].Logo, order = BLOCKORDER[cue].Order
       var vidnum = perm[cue][counter[cue]++]
 
+      addData("onset of offer", timeFrom(baseTime))
       var reaction = await showOffer(delay, ['Digit1', 'Digit2'], logo)
       clearScreen()
 
@@ -163,6 +172,7 @@ async function main() {
         break 
       }
 
+      nextEntry()
     }
     quitPsychoJS(INSTK, true);
 
@@ -170,8 +180,6 @@ async function main() {
 
 
 async function experiment() {
-  psychoJS.experiment.addData('shameimei', 'cytfloar');
-  psychoJS.experiment.nextEntry();
   document.getElementById("root").style.display = "none"
   document.getElementById("container").style.display = "initial"
   return main()
