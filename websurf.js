@@ -66,7 +66,6 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
     var key, start = new Date();
     if (keys === 'Digit2') key = await KeyPress(keys);
     else {
-      //while (key = await KeyPress(keys)) console.log(key);
       key = await KeyPress(keys);
       answer.reactionTime = timeFrom(start)
       answer.keyPress = key.code.slice(-1)
@@ -84,8 +83,8 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
     return answer;
 }
 
-var breakList = [0, 40, 60, 140, 999999], blockNum = 0; 
-//var breakList = [0, 480, 960, 1440, 999999], blockNum = 0; 
+// test var breakList = [0, 40, 60, 140, 999999], blockNum = 0; 
+var breakList = [0, 480, 960, 1440, 999999], blockNum = 0; 
 var baseTime;
 var nTrial = 1;
 
@@ -136,7 +135,7 @@ async function main() {
 
       if (timeFrom(baseTime) >= breakList[blockNum]) {
         newInstruction("+", {style: {fontSize: "100px", fontWeight: "bold"}})
-        await Timer(1) //test only, change to 40s for final copy
+        await Timer(40) //test only for 1s, change to 40s for final copy
         clearScreen()
         blockNum++
       }
@@ -186,10 +185,10 @@ async function main() {
       nTrial++;
       addData("offset of trial", timeFrom(baseTime))
 
-      if (timeFrom(baseTime) > 3 * 60) { //change to 35*60
+      if (timeFrom(baseTime) > 35 * 60) { //change to 35*60
         clearScreen()
         newInstruction(INSTK)
-        await Timer(3) //change to 20 later
+        await Timer(20) //change to 20 later
         clearScreen()
         break 
       }
