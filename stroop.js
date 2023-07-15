@@ -34,6 +34,17 @@ psychoJS.schedule(psychoJS.gui.DlgFromDict({
   title: expName
 }));
 
+async function quitPsychoJS(message, isCompleted) {
+  // Check for and save orphaned data
+  if (psychoJS.experiment.isEntryEmpty()) {
+    psychoJS.experiment.nextEntry();
+  }
+  psychoJS.window.close();
+  psychoJS.quit({message: message, isCompleted: isCompleted});
+  
+  return Scheduler.Event.QUIT;
+}
+
 function timeFrom(start) {
   return (Date.now() - start) / 1000;
 }
@@ -153,8 +164,9 @@ async function main() {
       }
 
     }
-}
+    quitPsychoJS(INSTK, true);
 
+}
 
 
 async function experiment() {
