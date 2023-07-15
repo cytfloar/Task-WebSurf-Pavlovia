@@ -19,8 +19,8 @@ function newElement(createDOM, settings = {}) {
   container.appendChild(DOM);
 
   function adjustSize() {
-    DOM.style.left = w * (x / 2 + 0.5) - DOM.offsetWidth / 2;
-    DOM.style.top = h * (y / 2 + 0.5) - DOM.offsetHeight / 2;
+    DOM.style.left = Math.round(w * (x / 2 + 0.5) - DOM.offsetWidth / 2) + "px";
+    DOM.style.top = Math.round(h * (y / 2 + 0.5) - DOM.offsetHeight / 2) + "px";
   }
 
   adjustSize();
