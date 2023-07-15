@@ -24,7 +24,7 @@ psychoJS.start({
 
 psychoJS.openWindow({
   fullscr: true,
-  color: new util.Color([0, 0, 0]),
+  color: new util.Color([145, 145, 145]),
   units: 'height',
   waitBlanking: true
 });

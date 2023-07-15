@@ -172,7 +172,6 @@ function newRatingScale(howmany, settings = {}) {
 }
 
 function clearScreen() {
-  document.body.style.background = "rgb(145, 145, 145)"
   container.innerHTML = "";
   for (var i in resizeListeners) {
     window.removeEventListener("resize", resizeListeners[i]);
