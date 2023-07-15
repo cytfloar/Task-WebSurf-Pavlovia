@@ -15,7 +15,7 @@ const psychoJS = new PsychoJS({
 });
 
 let expName = 'WebSurf'; 
-let expInfo = {'Participant': '', 'session': '001', "group": ""};
+let expInfo = {'participant': '', 'session': '001', "group": ""};
 
 psychoJS.start({
   expName: expName,
@@ -77,8 +77,8 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
         newImage(QUIT, {style: {
           width: "200px", height: "150px"}, x: 0.3, y: 0.45})
         var quitKey = await KeyPress('Digit2', sec)
-        answer.code = quitKey.code === 'Digit2' ? "quit" : "stay"
-      } else answer.code = "skip";
+        answer.code = quitKey.code === 'Digit2' ? "Quit" : "Stay"
+      } else answer.code = "Skip";
     }
     answer.offsetOfOffer = timeFrom(start);
     return answer;
@@ -151,7 +151,7 @@ async function main() {
       var vidnum = perm[cue][counter[cue]++]
 
       addData("onset of offer", timeFrom(baseTime))
-      var reaction = await showOffer(delay, ['Digit1', 'Digit2'], logo)
+      var reaction = await showOffer(delay, ['Digit1', 'Digit2'], BLOCKORDER[cue].Order)
       clearScreen()
       addData("offset of offer", timeFrom(baseTime))
       addData("cuelogo", logo)
@@ -159,7 +159,7 @@ async function main() {
       addData("decision", reaction.code)
       addData("rt decision", reaction.reactionTime)
 
-      if (reaction.code === 'stay') {
+      if (reaction.code === 'Stay') {
         var clipStart = Date.now()
         addData("onset of clip", timeFrom(baseTime))
         var videoDOM = newVideo(VIDPATH.format(order, vidnum), {
