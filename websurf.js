@@ -151,10 +151,10 @@ async function main() {
       var vidnum = perm[cue][counter[cue]++]
 
       addData("onset of offer", timeFrom(baseTime))
-      var reaction = await showOffer(delay, ['Digit1', 'Digit2'], BLOCKORDER[cue].Order)
+      var reaction = await showOffer(delay, ['Digit1', 'Digit2'], logo)
       clearScreen()
       addData("offset of offer", timeFrom(baseTime))
-      addData("cuelogo", logo)
+      addData("cuelogo", order)
       addData("keypress", reaction.keyPress)
       addData("decision", reaction.code)
       addData("rt decision", reaction.reactionTime)
