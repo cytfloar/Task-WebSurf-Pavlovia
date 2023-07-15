@@ -164,8 +164,8 @@ function newRatingScale(howmany, settings = {}) {
       color: "blue"
     });
     container.appendChild(arrow)
-    arrow.style.left = left - arrow.offsetWidth / 2 + width * (key - 1);
-    arrow.style.top = top - arrow.offsetHeight / 2;
+    arrow.style.left = Math.round(left - arrow.offsetWidth / 2 + width * (key - 1)) + "px";
+    arrow.style.top = Math.round(top - arrow.offsetHeight / 2) + "px";
     await Timer(1.0)
     return reaction
   }
