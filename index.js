@@ -96,7 +96,7 @@ function newProgressBar(seconds, settings = {}) {
     DOM.appendChild(progress);
 
     Object.assign(DOM.style, {
-      height: "60px",
+      height: "10vh",
       width: "40%",
       border: "1px solid",
       borderColor: "white"

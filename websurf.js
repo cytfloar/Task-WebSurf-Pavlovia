@@ -14,6 +14,11 @@ const psychoJS = new PsychoJS({
   debug: true
 });
 
+const BUTTON_WIDTH = "11vw";
+const BUTTON_HEIGHT = "13vh";
+const LOGO_WIDTH = "7.875vw";
+const LOGO_HEIGHT = "12vh";
+
 let expName = 'WebSurf';
 let expInfo = { 'participant': '', 'session': '001', "group": "" };
 
@@ -58,17 +63,17 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
   newInstruction(INSTD.format(sec), { y: -0.3 })
   var skipButton = newImage(SKIP, {
     style: {
-      width: "100px", height: "75px"
+      width: BUTTON_WIDTH, height: BUTTON_HEIGHT
     }, x: 0.3, y: 0.45
   })
   var stayButton = newImage(STAY, {
     style: {
-      width: "100px", height: "75px"
+      width: BUTTON_WIDTH, height: BUTTON_HEIGHT
     }, x: -0.3, y: 0.45
   })
   newImage(logo, {
     style: {
-      width: "75px", height: "75px"
+      width: "7.875vw", height: "12vh"
     }, y: -0.7
   })
   var bar = newProgressBar(sec, { y: -0.05 });
@@ -84,7 +89,7 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
       bar()
       newImage(QUIT, {
         style: {
-          width: "100px", height: "75px"
+          width: BUTTON_WIDTH, height: BUTTON_HEIGHT
         }, x: 0.3, y: 0.45
       })
       var quitKey = await KeyPress('Digit2', sec)
@@ -153,7 +158,7 @@ async function main() {
     // }
 
     var cue = nTrial % 4
-    var delay = randint(1, 2) // change back to 3, 30
+    var delay = randint(3, 30) // change back to 3, 30
     // if (cue === 1) shuffleArray(BLOCKORDER)
 
     addData("delay", delay)
@@ -179,7 +184,7 @@ async function main() {
       });
       newImage(logo, {
         style: {
-          width: "75px", height: "75px"
+          width: "7.875vw", height: "12vh"
         }, y: -0.7
       })
       await VideoEnded(videoDOM)
