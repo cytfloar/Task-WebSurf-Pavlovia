@@ -8,7 +8,6 @@ const { PsychoJS } = core;
 const { TrialHandler } = data;
 const { Scheduler } = util;
 //some handy aliases as in the psychopy scripts;
-const { abs, sin, cos, PI: pi, sqrt } = Math;
 const { round } = util;
 
 const psychoJS = new PsychoJS({
@@ -59,18 +58,18 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
   newInstruction(INSTD.format(sec), { y: -0.3 })
   var skipButton = newImage(SKIP, {
     style: {
-      width: "200px", height: "150px"
+      width: "100px", height: "75px"
     }, x: 0.3, y: 0.45
   })
   var stayButton = newImage(STAY, {
     style: {
-      width: "200px", height: "150px"
+      width: "100px", height: "75px"
     }, x: -0.3, y: 0.45
   })
   newImage(logo, {
     style: {
-      width: "150px", height: "150px"
-    }, y: -0.65
+      width: "75px", height: "75px"
+    }, y: -0.7
   })
   var bar = newProgressBar(sec, { y: -0.05 });
   var key, start = new Date();
@@ -85,7 +84,7 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
       bar()
       newImage(QUIT, {
         style: {
-          width: "200px", height: "150px"
+          width: "100px", height: "75px"
         }, x: 0.3, y: 0.45
       })
       var quitKey = await KeyPress('Digit2', sec)
@@ -97,7 +96,7 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
 }
 
 // test var breakList = [0, 40, 60, 140, 999999], blockNum = 0; 
-var breakList = [0, 480, 960, 1440, 999999], blockNum = 0;
+// var breakList = [0, 480, 960, 1440, 999999], blockNum = 0;
 var baseTime;
 var nTrial = 1;
 
@@ -107,7 +106,7 @@ async function showNumbers() {
     var number = randint(1, 4)
     numbers.push(number)
     newInstruction(number, {
-      style: { fontSize: "70px" },
+      style: { fontSize: "9vh" },
       x: uniform(-0.8, 0.8),
       y: uniform(-0.8, 0.8)
     })
@@ -142,8 +141,6 @@ async function main() {
 
   baseTime = Date.now()
 
-  console.log(perm);
-
   while (true) {
     addData("trial", nTrial)
     addData("onset of trial", timeFrom(baseTime))
@@ -156,7 +153,7 @@ async function main() {
     // }
 
     var cue = nTrial % 4
-    var delay = randint(3, 30)
+    var delay = randint(1, 2) // change back to 3, 30
     // if (cue === 1) shuffleArray(BLOCKORDER)
 
     addData("delay", delay)
@@ -178,17 +175,17 @@ async function main() {
       var clipStart = Date.now()
       addData("onset of clip", timeFrom(baseTime))
       var videoDOM = newVideo(VIDPATH.format(order, vidnum), {
-        y: -0.05, style: { width: "1000px", height: "562.5px" }
+        y: -0.05, style: { width: "50vw", height: "50vh", "object-fit": "cover" }
       });
       newImage(logo, {
         style: {
-          width: "150px", height: "150px"
-        }, y: -0.65
+          width: "75px", height: "75px"
+        }, y: -0.7
       })
       await VideoEnded(videoDOM)
       addData("offset of clip", timeFrom(baseTime))
       addData("duration of clip", timeFrom(clipStart))
-      var scale = newRatingScale(4, { y: 0.5 })
+      var scale = newRatingScale(4, { y: 0.62 })
       var scaleResponse = await scale()
 
       addData("rating", scaleResponse.code)
@@ -205,7 +202,7 @@ async function main() {
 
     addData("offset of trial", timeFrom(baseTime))
 
-    if (timeFrom(baseTime) > 35 * 60) { //change to 35*60
+    if (timeFrom(baseTime) > 30 * 60) { //change to 30*60
       clearScreen()
       newInstruction(INSTK)
       await Timer(20) //change to 20 later

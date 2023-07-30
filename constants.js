@@ -11,13 +11,16 @@ if (!String.prototype.format) {
 }
 
 INSTA = `
-As a quick refresher, you will first complete two practice trials 
 
-These trials will illustrate what happens if you STAY and watch a video 
+In this task, you will be selecting short video clips to watch.  
 
-OR if you SKIP a video and move on to the next category. 
+This task will last for 30 minutes. 
 
-Press any button to continue. 
+During this time, you'll be deciding which video clips to watch from 4 video galleries. 
+
+Each gallery will show videos from a different category, which is indicated by the symbols shown below. 
+
+The sequence of the galleries will remain the same through the whole task.
 `
 
 INSTB = `
@@ -40,10 +43,9 @@ INSTD = ` Video in {0} seconds ...`
 INSTF = `Now push the buttons that correspond to the numbers`
 INSTG = `Push the STAY button with your POINTER finger`
 
-INSTH = `You will now begin the FOUR test blocks 
- 
-During each block (about 9 mins each),  
-YOU get to decide how to spend your time 
+INSTH = `You will now begin the experiment. 
+It will be 30 minutes in total.  
+YOU get to decide how to spend your time. 
 
 Press any button to continue.  
 `

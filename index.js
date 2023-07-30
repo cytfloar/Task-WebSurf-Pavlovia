@@ -50,7 +50,7 @@ function newInstruction(text, settings = {}) {
     Object.assign(textDOM.style, {
       color: "black",
       fontFamily: "Arial",
-      fontSize: "50px",
+      fontSize: "4.5vh",
       whiteSpace: "pre-wrap",
       textAlign: "center",
       width: "60%"
@@ -96,8 +96,8 @@ function newProgressBar(seconds, settings = {}) {
     DOM.appendChild(progress);
 
     Object.assign(DOM.style, {
-      height: "95px",
-      width: "35%",
+      height: "60px",
+      width: "40%",
       border: "1px solid",
       borderColor: "white"
     });
@@ -133,7 +133,7 @@ function newRatingScale(howmany, settings = {}) {
       var number = document.createElement("div")
       numbers.appendChild(number);
       number.innerHTML = i + 1;
-      number.style.fontSize = "50px";
+      number.style.fontSize = "5vh";
     };
     DOM.style.width = "30%";
     Object.assign(numbers.style, {
@@ -160,7 +160,7 @@ function newRatingScale(howmany, settings = {}) {
     Object.assign(arrow.style, {
       position: "absolute",
       left, top,
-      fontSize: "50px",
+      fontSize: "5vh",
       color: "blue"
     });
     container.appendChild(arrow)
