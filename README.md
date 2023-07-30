@@ -1,0 +1,1 @@
+This task is developed based on the descriptions in the following paper and adapted for the launch of Pavlovia: Abram, S. V., Hanke, M., Redish, A. D., & MacDonald, A. W. (2019). Neural signatures underlying deliberation in human foraging decisions. Cognitive, Affective, & Behavioral Neuroscience, 19, 1492-1508.
