@@ -1,5 +1,6 @@
 ﻿/*************** 
- * WebSurf Task *
+ * WebSurf Task 
+ * This experiment was created in JavaScript on Jul.14, 2023 by Serena J. Gu *
  ***************/
 
 import { core, data, sound, util, visual } from './lib/psychojs-2021.2.3.js';
@@ -133,16 +134,16 @@ async function main() {
       addData("trial", nTrial)
       addData("onset of trial", timeFrom(baseTime))
 
-      if (timeFrom(baseTime) >= breakList[blockNum]) {
-        newInstruction("+", {style: {fontSize: "100px", fontWeight: "bold"}})
-        await Timer(40) //test only for 1s, change to 40s for final copy
-        clearScreen()
-        blockNum++
-      }
+      // if (timeFrom(baseTime) >= breakList[blockNum]) {
+      //   newInstruction("+", {style: {fontSize: "100px", fontWeight: "bold"}})
+      //   await Timer(40) //test only for 1s, change to 40s for final copy
+      //   clearScreen()
+      //   blockNum++
+      // }
 
       var cue = nTrial % 4
       var delay = randint(3, 30)
-      if (cue === 1) shuffleArray(BLOCKORDER)
+      // if (cue === 1) shuffleArray(BLOCKORDER)
 
       addData("delay", delay)
 

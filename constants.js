@@ -1,11 +1,11 @@
 if (!String.prototype.format) {
-  String.prototype.format = function() {
+  String.prototype.format = function () {
     var args = arguments;
-    return this.replace(/{(\d+)}/g, function(match, number) { 
+    return this.replace(/{(\d+)}/g, function (match, number) {
       return typeof args[number] != 'undefined'
         ? args[number]
         : match
-      ;
+        ;
     });
   };
 }
@@ -65,21 +65,21 @@ VIDPATH = "Stimuli/{0}/{0}{1}.mp4"
 PRACLOGO = "CategorySymbols/Baby_Animal.jpg"
 
 BLOCKORDER = [
-    {
-        "Order": "LANDSCAPE",
-        "Logo": "CategorySymbols/Landscape.jpg"
-    },
-    {
-        "Order": "ART",
-        "Logo": "CategorySymbols/Art.png"
-    },
-    {
-        "Order": "ANIMAL",
-        "Logo": "CategorySymbols/Baby_Animal.jpg"
-    },
-    {
-        "Order": "DANCE",
-        "Logo": "CategorySymbols/Dance.jpg"
-    }
+  {
+    "Order": "ANIMAL",
+    "Logo": "CategorySymbols/Baby_Animal.jpg"
+  },
+  {
+    "Order": "DANCE",
+    "Logo": "CategorySymbols/Dance.jpg"
+  },
+  {
+    "Order": "LANDSCAPE",
+    "Logo": "CategorySymbols/Landscape.jpg"
+  },
+  {
+    "Order": "ART",
+    "Logo": "CategorySymbols/Art.png"
+  }
 ]
 
