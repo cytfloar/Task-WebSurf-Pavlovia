@@ -60,7 +60,7 @@ function timeFrom(start) {
 async function showOffer(sec, keys, logo = PRACLOGO) {
   var answer = {}
   clearScreen()
-  newInstruction(INSTD.format(sec), { y: -0.3 })
+  newInstruction(PROMPT.format(sec), { y: -0.3 })
   var skipButton = newImage(SKIP, {
     style: {
       width: BUTTON_WIDTH, height: BUTTON_HEIGHT
@@ -73,14 +73,14 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
   })
   newImage(logo, {
     style: {
-      width: "7.875vw", height: "12vh"
+      width: LOGO_WIDTH, height: LOGO_HEIGHT
     }, y: -0.7
   })
   var bar = newProgressBar(sec, { y: -0.05 });
-  var key, start = new Date();
+  var key, start = new Date()
   if (keys === 'Digit2') key = await KeyPress(keys);
   else {
-    key = await KeyPress(keys);
+    key = await KeyPress(keys)
     answer.reactionTime = timeFrom(start)
     answer.keyPress = key.code.slice(-1)
     if (key.code === 'Digit1') {
@@ -94,16 +94,16 @@ async function showOffer(sec, keys, logo = PRACLOGO) {
       })
       var quitKey = await KeyPress('Digit2', sec)
       answer.code = quitKey.code === 'Digit2' ? "Quit" : "Stay"
-    } else answer.code = "Skip";
+    } else answer.code = "Skip"
   }
-  answer.offsetOfOffer = timeFrom(start);
-  return answer;
+  answer.offsetOfOffer = timeFrom(start)
+  return answer
 }
 
 // test var breakList = [0, 40, 60, 140, 999999], blockNum = 0; 
 // var breakList = [0, 480, 960, 1440, 999999], blockNum = 0;
-var baseTime;
-var nTrial = 1;
+var baseTime
+var nTrial = 1
 
 async function showNumbers() {
   var numbers = []
@@ -123,19 +123,37 @@ async function showNumbers() {
 
 async function main() {
   clearScreen()
-  await manyInstructions([INSTA, INSTB, INSTC])
-  await showOffer(5.0, 'Digit2')
+  await manyInstructions([...INSTPRAC1])
   clearScreen()
-  newInstruction(INSTF)
-  clearScreen()
-  await showNumbers()
-  clearScreen()
-  newInstruction(INSTG)
-  await KeyPress('Space')
-  clearScreen()
-  var status = await showOffer(5.0, ['Digit1', 'Digit2'])
-  clearScreen()
-  await manyInstructions([INSTH, INSTI, INSTJ])
+  newImage(SKIP, {
+    style: {
+      width: BUTTON_WIDTH, height: BUTTON_HEIGHT
+    }, x: 0.3, y: 0.45
+  })
+  newImage(STAY, {
+    style: {
+      width: BUTTON_WIDTH, height: BUTTON_HEIGHT
+    }, x: -0.3, y: 0.45
+  })
+  await manyInstructions([INSTPRAC2], { y: -0.2 })
+  await manyInstructions([...INSTPRAC3])
+
+  for (var i = 1; i < 5; ++ i) {
+    var pracVID = newVideo(PRACVIDPATH.format(BLOCKORDER[i % 4].Order, 1), {
+      y: -0.05, style: { width: "50vw", height: "50vh", "object-fit": "cover" }
+    });
+    newImage(BLOCKORDER[i % 4].Logo, {
+      style: {
+        width: LOGO_WIDTH, height: LOGO_HEIGHT
+      }, y: -0.7
+    })
+    await VideoEnded(pracVID)
+    var pracScale = newRatingScale(4, { y: 0.62 })
+    await pracScale()
+    clearScreen()
+  }
+
+  await manyInstructions([...INSTA])
 
   var perm = []
   for (var i = 0; i < 4; ++i) {
@@ -150,6 +168,7 @@ async function main() {
     addData("trial", nTrial)
     addData("onset of trial", timeFrom(baseTime))
 
+    // Fixation Cross
     // if (timeFrom(baseTime) >= breakList[blockNum]) {
     //   newInstruction("+", {style: {fontSize: "100px", fontWeight: "bold"}})
     //   await Timer(40) //test only for 1s, change to 40s for final copy
@@ -159,6 +178,7 @@ async function main() {
 
     var cue = nTrial % 4
     var delay = randint(3, 30) // change back to 3, 30
+    // To shuffle comment out next line
     // if (cue === 1) shuffleArray(BLOCKORDER)
 
     addData("delay", delay)
@@ -184,7 +204,7 @@ async function main() {
       });
       newImage(logo, {
         style: {
-          width: "7.875vw", height: "12vh"
+          width: LOGO_WIDTH, height: LOGO_HEIGHT
         }, y: -0.7
       })
       await VideoEnded(videoDOM)

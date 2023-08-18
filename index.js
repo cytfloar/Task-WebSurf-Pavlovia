@@ -50,7 +50,7 @@ function newInstruction(text, settings = {}) {
     Object.assign(textDOM.style, {
       color: "black",
       fontFamily: "Arial",
-      fontSize: "4.5vh",
+      fontSize: "4vh",
       whiteSpace: "pre-wrap",
       textAlign: "center",
       width: "60%"
@@ -217,9 +217,9 @@ function Timer(time) {
   })
 }
 
-async function manyInstructions(list) {
+async function manyInstructions(list, config) {
   for (var i in list) {
-    newInstruction(list[i])
+    newInstruction(list[i], config)
     await KeyPress("Space")
     clearScreen()
   }
