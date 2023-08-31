@@ -136,6 +136,16 @@ async function main() {
     }, x: -0.3, y: 0.45
   })
   await manyInstructions([INSTPRAC2], { y: -0.2 })
+  await manyInstructions([...INSTSKIP])
+  await showOffer(10.0, 'Digit2')
+  clearScreen()
+  await manyInstructions([...INSTSTAY])
+  await showOffer(5.0, ['Digit1', 'Digit2'])
+  clearScreen()
+  await manyInstructions([...INSTNUM])
+  clearScreen()
+  await showNumbers()
+  clearScreen()
   await manyInstructions([...INSTPRAC3])
 
   for (var i = 1; i < 5; ++ i) {
